@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int BST_FAIL = 0;
-int BST_SUCCESS = 1;
+char array[10];
+int i = 0;
 
 typedef struct node {
     char data;
@@ -22,7 +22,9 @@ void *postOrder(node *root) {
     if (root != NULL) {
         postOrder(root->left);
         postOrder(root->right);
-        printf("%c ", root->data);
+        //printf("%c ", root->data);
+        array[i] = root->data;
+        i++;
     }
 }
 
@@ -45,7 +47,9 @@ int main() {
 
     postOrder(t);
 
-
+    for (int j = 0; j < 11;j++){
+        printf("%c ",array[j]);
+    }
 
 }
 
